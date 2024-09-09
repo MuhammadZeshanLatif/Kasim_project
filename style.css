@@ -8,14 +8,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 /* Button Styles for the First Page */
 .button {
     font-size: 18px;
     color: white;
-    background-color: #ff4d4d; /* Softer red */
+    background-color: #ff4d4d;
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 8px;
@@ -26,7 +27,7 @@ body {
 }
 
 .button:hover {
-    background-color: #e60000; /* Darker red on hover */
+    background-color: #e60000;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -39,44 +40,83 @@ body {
 
 /* Video Container Styles for Second Page */
 .video-container {
+    margin: 24px;
+    width: 100%;
+    max-width: 600px;
     display: none; /* Initially hidden */
+    background: #fff;
     margin-bottom: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
 /* Content Block on Second Page */
 .content {
-    margin: 0 26px;
+    width: 100%;
+    max-width: 600px;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
     text-align: left;
+    margin: 20px 0;
 }
-
+a.button {
+    width: 150px;
+    text-align: center;
+}
 /* Error Message Styles */
 .error-message {
+    margin: 20px;
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
     display: none;
     color: red;
     font-size: 18px;
     text-align: center;
     margin-top: 20px;
     font-weight: bold;
+    /* background-color: #f9f9f9; */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Responsive Design: Ensure content fits smaller screens */
 @media (max-width: 768px) {
     body {
         padding: 10px;
+        flex-direction: column;
     }
-
-    .content {
-        padding: 15px;
+    video#dummyVideo {
+        height: 201px;
+        width: 354px;
+    }
+    .video-container, .content, .error-message {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
     }
 
     .button {
-        padding: 10px 20px;
+        width: 100%;
+        padding: 12px;
         font-size: 16px;
+    }
+
+    .video-container {
+        order: 1;
+    }
+
+    .content {
+        order: 2;
+    }
+
+    .error-message {
+        height: auto;
+        padding: 20px;
     }
 }
