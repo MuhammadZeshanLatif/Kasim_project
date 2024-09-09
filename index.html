@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Page-1</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .button {
+            font-size: 18px;
+            color: white;
+            background-color: red;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            animation: colorCycle 1s infinite;
+        }
+
+        @keyframes colorCycle {
+            0% { background-color: red; }
+            50% { background-color: darkred; }
+            100% { background-color: red; }
+        }
+    </style>
+</head>
+<body>
+    <a class="button" href="page2.html?redirected=true" title="Go to Video Page" onclick="redirect()">Go to Video Page</a>
+
+    <script>
+        function redirect() {
+            // Set a flag in sessionStorage when the user clicks the button
+            sessionStorage.setItem('redirectedFromPage1', 'true');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Page-2</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <video id="dummyVideo" controls width="600">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="content">
+        <h2>Some Dummy Content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+        <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+    </div>
+
+    <div id="errorMessage" class="error-message" style="display: none;">
+        Something went wrong
+    </div>
+
+    <script>
+        window.onload = function () {
+            // Check if the user was redirected from page 1 using sessionStorage
+            const redirectedFromPage1 = sessionStorage.getItem('redirectedFromPage1');
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirected = urlParams.get('redirected');
+
+            const videoContainer = document.querySelector('.video-container');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (redirected === 'true' && redirectedFromPage1 === 'true') {
+                // Show the video if the user is redirected from page 1
+                videoContainer.style.display = 'block';
+                sessionStorage.removeItem('redirectedFromPage1'); // Clear the flag after use
+            } else {
+                // Show an error message if accessed directly or with manipulated URL
+                errorMessage.style.display = 'block';
+            }
+        };
+    </script>
+
+</body>
+</html>
